@@ -4,10 +4,11 @@
  * @type {import('f2e-server').F2EConfig}
  */
 const config = {
-    livereload: true,
+    port: 8000, // 启动端口
+    livereload: true,   // 自动刷新
     build: false,
     gzip: true,
-    useLess: true,
+    useLess: true,  // 使用less编译
     buildFilter: pathname => /^(asserts|css|favicon|index|src|$)/.test(pathname),
     middlewares: [
         // 对应文本支持简单ejs语法的服务端渲染，通常用来给资源链接加时间戳
@@ -17,12 +18,12 @@ const config = {
         // 使用webpack 需要安装中间件 f2e-middle-webpack
         // { middleware: 'webpack' },
         
-        {
-            middleware: 'proxy',
-            test: /^\/?meta/,
-            url: 'http://172.16.0.201:5001',
-            pathname: '/get',
-        },
+        // {
+        //     middleware: 'proxy',
+        //     test: /^\/?meta/,
+        //     url: 'http://172.16.0.201:5001',
+        //     pathname: '/get',
+        // },
 
         require('./lib').default,
         {middleware: 'authority'},

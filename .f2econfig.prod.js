@@ -11,12 +11,12 @@ const config = {
     useLess: false,
     buildFilter: pathname => /^(asserts|css|favicon|index|static|$)/.test(pathname),
     middlewares: [
-        {
-            middleware: 'proxy',
-            test: /^\/?meta/,
-            url: 'http://172.16.0.201:5001',
-            pathname: '/get',
-        },
+        // {
+        //     middleware: 'proxy',
+        //     test: /^\/?meta/,
+        //     url: 'http://172.16.0.201:5001',
+        //     pathname: '/get',
+        // },
         require('./lib').default,
         { middleware: 'authority' },
     ],

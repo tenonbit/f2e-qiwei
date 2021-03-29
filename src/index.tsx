@@ -7,10 +7,10 @@ import { dispatch } from './store';
 import { meta_all } from './apis/meta'
 
 render(<ConfigProvider locale={window['antd'].locales.zh_CN}>
-    <App />
+  <App />
 </ConfigProvider>, document.getElementById('app'));
 
 Promise.all([
-    Fetch(`/admin/loginUser`),
-    meta_all(),
+  Fetch(`/admin/loginUser`),
+  meta_all(),
 ]).then(([loginUser, meta]) => dispatch(state => ({ ...state, loginUser, meta })))

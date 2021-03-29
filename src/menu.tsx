@@ -37,7 +37,7 @@ export const getMenus = (): MenuItem[] => {
           icon: <SearchOutlined />,
           href: '/not_build',
           component: PageNotBuild,
-          hide: true,
+          // hide: true,
         },
       ]
     },

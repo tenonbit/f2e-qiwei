@@ -5,6 +5,11 @@ import { User } from 'f2e-middle-authority'
 export const history = createBrowserHistory()
 
 /**
+ * npm history:
+ *  - forceRefresh: true  // 地址变化时，强制刷新页面
+ */
+
+/**
  * 本地存储KEY
  */
 const STORE_KEY = 'CREATE@F2E@APP'
