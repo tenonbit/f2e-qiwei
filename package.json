@@ -1,0 +1,57 @@
+{
+  "name": "create-f2e-app",
+  "version": "0.3.0",
+  "description": "f2e-server 创建的前后端同构项目脚手架",
+  "main": "start.js",
+  "scripts": {
+    "tsc": "tsc -p tsconfig.serve.json",
+    "dev": "npm run tsc && f2e start -c .f2econfig.dev.js -O",
+    "build": "npm run tsc && f2e build -c .f2econfig.build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f2e-server/create-f2e-app.git"
+  },
+  "keywords": [
+    "f2e-server",
+    "esbuild",
+    "antd",
+    "react",
+    "SPA",
+    "ServerSentEvent",
+    "create-app"
+  ],
+  "author": "shy2850",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/f2e-server/create-f2e-app/issues"
+  },
+  "homepage": "https://github.com/f2e-server/create-f2e-app#readme",
+  "dependencies": {
+    "f2e-middle-authority": "^0.7.4",
+    "f2e-middle-proxy": "^0.4.2",
+    "f2e-serve": "^0.6.2",
+    "f2e-server": "^2.14.5",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router": "^5.1.12",
+    "antd": "^4.14.1",
+    "clean-css": "^5.1.2",
+    "echarts": "^5.0.2",
+    "f2e-middle-esbuild": "^0.3.0",
+    "flowpp-tag-selector": "^0.1.23",
+    "history": "^4.10.1",
+    "ipreact-for-react": "^0.1.0",
+    "less": "^4.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "uglify-es": "^3.3.9",
+    "uglify-js": "^3.13.2"
+  }
+}
