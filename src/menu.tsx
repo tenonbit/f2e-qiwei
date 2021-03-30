@@ -44,13 +44,13 @@ export const getMenus = (): MenuItem[] => {
     {
       key: 'devide-line',
     },
-    hasAuthority(AuthorityType.RUNTIME) && {
-      key: '/runtime',
-      name: '运行状态',
-      icon: <DashboardOutlined />,
-      href: '/runtime',
-      component: Runtime,
-    },
+    // hasAuthority(AuthorityType.RUNTIME) && {
+    //   key: '/runtime',
+    //   name: '运行状态',
+    //   icon: <DashboardOutlined />,
+    //   href: '/runtime',
+    //   component: Runtime,
+    // },
   ].filter(m => m)
 };
 

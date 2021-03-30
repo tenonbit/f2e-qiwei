@@ -33,7 +33,8 @@ const config = {
     },
 
     require('./lib').default,
-    { middleware: 'authority' },
+    
+    // { middleware: 'authority' },
   ],
   // onServerCreate: (server) => {
   //     const { Server } = require('ws')

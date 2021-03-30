@@ -49,9 +49,12 @@ class Layout extends React.Component<Props> {
 
   render() {
     const { collapsed, toggleCollapse, rect, loading, pathname, loginUser, theme } = this.props
-    if (!loginUser || !rect) {
-      return <div />
-    }
+    console.log('loginUser', loginUser);
+    
+    // if (!loginUser || !rect) {
+    //   return <div />
+    // }
+
     const menus = getMenus()
     console.log('menus', menus)
 
@@ -144,7 +147,8 @@ class Layout extends React.Component<Props> {
                   </Menu>}
                 >
                   <Button type="text">
-                    <UserOutlined /> {loginUser.nickname}
+                    <UserOutlined /> 123
+                    {/* {loginUser.nickname} */}
                   </Button>
                 </Dropdown>
               </span>
