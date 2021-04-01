@@ -6,7 +6,7 @@ import { connect, getState, dispatch, history, Rect } from '../store';
 import Logo from './logo';
 import { getMenus, getDefaultOpenKeys, getHome, getRoutes } from '../menu';
 import { ThemeType } from '../../serve/interfaces';
-import { User } from 'f2e-middle-authority';
+// import { User } from 'f2e-middle-authority';
 
 const { SubMenu } = Menu
 
@@ -15,7 +15,7 @@ interface Props {
   collapsed: boolean;
   pathname: string;
   toggleCollapse: () => void
-  loginUser: User
+  loginUser: {}
   theme: ThemeType
   rect: Rect
 }

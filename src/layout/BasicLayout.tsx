@@ -4,26 +4,58 @@ import { Layout, message } from 'antd';
 import { connect, getState, dispatch, history, Rect } from '../store';
 import SiderMenu from '../components/SiderMenu';
 import GlobalHeader from '../components/GlobalHeader';
+import { getMenuData } from '../common/menu';
+import { getRoutes } from '../utils/utils';
+import { getRouterData } from '../common/router'
+
 
 
 const { Content } = Layout;
 
+const redirectData = [];
+const getRedirect = (item) => {
+  if (item && item.children) {
+    if (item.children[0] && item.children[0].path) {
+      redirectData.push({
+        from: `/${item.path}`,
+        to: `/${item.children[0].path}`,
+      });
+      item.children.forEach((children) => {
+        getRedirect(children);
+      });
+    }
+  }
+};
+getMenuData().forEach(getRedirect);
 
 
-interface Props {
-  loading: number
-  collapsed: boolean
-  pathname: string
-  toggleCollapse: () => void
-  // theme: ThemeType
-  // rect: Rect
+
+interface IBasicLayout {
+  loading: number,
+  collapsed: boolean,
+  pathname: string,
+  toggleCollapse: () => void,
+  // theme: ThemeType,
+  // rect: Rect,
+  match?: any,
+  location?: any,
+  routerData?: any
 }
 
-class BasicLayout extends React.PureComponent {
+class BasicLayout extends React.PureComponent<IBasicLayout> {
+  state = {
+    isMobile: false
+  }
 
   render() {
 
     console.log('this.props', this.props);
+    console.log('getRouterData', getRouterData());
+
+    const {
+      collapsed,
+      match, location, routerData
+    } = this.props;
 
 
 
@@ -31,9 +63,9 @@ class BasicLayout extends React.PureComponent {
       <div>
         <Layout>
           <SiderMenu
-            // collapsed={collapsed}
-            // location={location}
-            // isMobile={this.state.isMobile}
+            collapsed={collapsed}
+            location={location}
+            isMobile={this.state.isMobile}
             // onCollapse={this.handleMenuCollapse}
           />
 
@@ -53,14 +85,13 @@ class BasicLayout extends React.PureComponent {
 
             <Content style={{ margin: '24px 24px 0', height: '100%' }}>
               <div style={{ minHeight: 'calc(100vh - 260px)' }}>
-                111
-                {/* <Switch> */}
-                  {/* {
+                <Switch>
+                  {
                     redirectData.map(item =>
                       <Redirect key={item.from} exact from={item.from} to={item.to} />
                     )
-                  } */}
-                  {/* {
+                  }
+                  {
                     getRoutes(match.path, routerData).map(item => (
                       <Route
                         key={item.key}
@@ -69,10 +100,10 @@ class BasicLayout extends React.PureComponent {
                         exact={item.exact}
                       />
                     ))
-                  } */}
-                  {/* <Redirect exact from="/" to="/dashboard/analysis" /> */}
+                  }
+                  <Redirect exact from="/" to="/home" />
                   {/* <Route render={NotFound} /> */}
-                {/* </Switch> */}
+                </Switch>
               </div>
               
               {/* <GlobalFooter
@@ -108,9 +139,10 @@ class BasicLayout extends React.PureComponent {
 }
 
 export default connect(() => {
-  const { loading, collapsed } = getState()
+  const { loading, collapsed, routerData } = getState()
   return {
     loading,
-    collapsed
+    collapsed,
+    routerData,
   }
 })(BasicLayout);

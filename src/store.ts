@@ -1,8 +1,10 @@
 import { Meta, ThemeType } from '../serve/interfaces'
 import createStore, { IPreact } from 'ipreact-for-react'
 import { createBrowserHistory } from 'history'
-import { User } from 'f2e-middle-authority'
+// import { User } from 'f2e-middle-authority'
 export const history = createBrowserHistory()
+import { getRouterData } from './common/router'
+
 
 /**
  * npm history:
@@ -24,9 +26,10 @@ interface IStoreState {
   collapsed?: boolean
   pathname?: string
   theme?: ThemeType
-  loginUser?: User
+  loginUser?: any
   rect?: Rect
   meta?: Meta
+  routerData?: any
 }
 
 let store: IStoreState = {
@@ -38,6 +41,7 @@ let store: IStoreState = {
     width: document.documentElement.clientWidth,
     height: document.documentElement.clientHeight,
   },
+  routerData: getRouterData()
 }
 
 try {
