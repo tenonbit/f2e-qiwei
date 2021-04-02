@@ -16,7 +16,7 @@ export const asyncComponent = loadComponent => (
       this.hasLoadedComponent = this.hasLoadedComponent.bind(this)
     }
 
-    componentWillMount() {
+    componentDidMount() {
       if (this.hasLoadedComponent()) {
         return null
       }

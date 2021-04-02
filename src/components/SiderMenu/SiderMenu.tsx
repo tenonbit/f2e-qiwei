@@ -169,7 +169,7 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
 
     // console.log('this.menu', this.menus);
     // console.log('state', this.state);
-    console.log('this.props.siderMenu', this.props)
+    // console.log('this.props.siderMenu', this.props)
 
     const { collapsed, location: { pathname } } = this.props
     const { openKeys } = this.state
@@ -181,7 +181,7 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
 
-    console.log('selectedKeys', selectedKeys);
+    // console.log('selectedKeys', selectedKeys);
 
     return (
       <Sider

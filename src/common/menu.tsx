@@ -40,11 +40,11 @@ const menuData = [
     children: [
       {
         name: '加粉任务管理',
-        path: 'taskManagement',
+        path: 'taskManage',
       }, 
       {
         name: '加粉任务分配',
-        path: 'taskAssignment',
+        path: 'taskAllot',
       },
       {
         name: '加粉任务列表',

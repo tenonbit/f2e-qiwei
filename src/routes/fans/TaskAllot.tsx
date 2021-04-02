@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class TaskManage extends Component {
+export default class TaskAllot extends Component {
   render() {
     return (
       <div>
-        任务管理
+        任务分配
       </div>
     )
   }
