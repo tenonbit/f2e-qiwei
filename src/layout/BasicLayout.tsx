@@ -4,6 +4,7 @@ import { Layout, message } from 'antd';
 import { connect, getState, dispatch, history, Rect } from '../store';
 import SiderMenu from '../components/SiderMenu';
 import GlobalHeader from '../components/GlobalHeader';
+import GlobalFooter from '../components/GlobalFooter';
 import { getMenuData } from '../common/menu';
 import { getRoutes } from '../utils/utils';
 import { getRouterData } from '../common/router'
@@ -28,15 +29,11 @@ const getRedirect = (item) => {
 };
 getMenuData().forEach(getRedirect);
 
-
-
 interface IBasicLayout {
   loading: number,
   collapsed: boolean,
   pathname: string,
   toggleCollapse: () => void,
-  // theme: ThemeType,
-  // rect: Rect,
   match?: any,
   location?: any,
   routerData?: any
@@ -48,16 +45,9 @@ class BasicLayout extends React.PureComponent<IBasicLayout> {
   }
 
   render() {
-
-    console.log('this.props', this.props);
-    console.log('getRouterData', getRouterData());
-
     const {
-      collapsed,
-      match, location, routerData
-    } = this.props;
-
-
+      collapsed, match, location, routerData
+    } = this.props
 
     return (
       <div>
@@ -66,7 +56,6 @@ class BasicLayout extends React.PureComponent<IBasicLayout> {
             collapsed={collapsed}
             location={location}
             isMobile={this.state.isMobile}
-            // onCollapse={this.handleMenuCollapse}
           />
 
           <Layout>
@@ -105,10 +94,9 @@ class BasicLayout extends React.PureComponent<IBasicLayout> {
                   {/* <Route render={NotFound} /> */}
                 </Switch>
               </div>
-              
-              {/* <GlobalFooter
+              <GlobalFooter
                 links={[{
-                  title: 'Pro 首页',
+                  title: 'Ant Design Pro',
                   href: 'http://pro.ant.design',
                   blankTarget: true,
                 }, {
@@ -122,20 +110,16 @@ class BasicLayout extends React.PureComponent<IBasicLayout> {
                 }]}
                 copyright={
                   <div>
-                    Copyright <Icon type="copyright" /> 2017 蚂蚁金服体验技术部出品
+                    Copyright @ CopyrightCopyrightCopyright
                   </div>
                 }
-              /> */}
-
+              />
             </Content>
-
           </Layout>
-
         </Layout>
       </div>
     )
   }
-
 }
 
 export default connect(() => {

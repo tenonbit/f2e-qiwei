@@ -1,18 +1,7 @@
 import React, { PureComponent } from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
-// import logo from '../../assets/logo.svg';
 import { getMenuData } from '../../common/menu';
-
-// import {
-//   AppstoreOutlined,
-//   MenuUnfoldOutlined,
-//   MenuFoldOutlined,
-//   PieChartOutlined,
-//   DesktopOutlined,
-//   ContainerOutlined,
-//   MailOutlined,
-// } from '@ant-design/icons';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -33,11 +22,6 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
       collapsed: false,
     };
   }
-  // private menus = getMenuData()
-
-  // state = {
-  //   collapsed: false,
-  // }
 
   // componentWillReceiveProps(nextProps) {
   //   if (nextProps.location.pathname !== this.props.location.pathname) {
@@ -91,10 +75,6 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
       return itemRegExp.test(path.replace(/^\//, '').replace(/\/$/, ''));
     });
   }
-
-
-
-
 
   getNavMenuItems(menusData) {
     if (!menusData) {
@@ -154,7 +134,6 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
   }
 
   handleOpenChange = (openKeys) => {
-    console.log('openKeys', openKeys);
     const lastOpenKey = openKeys[openKeys.length - 1];
     const isMainMenu = this.menus.some(
       item => lastOpenKey && (item.key === lastOpenKey || item.path === lastOpenKey)
@@ -166,11 +145,6 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
 
 
   render() {
-
-    // console.log('this.menu', this.menus);
-    // console.log('state', this.state);
-    // console.log('this.props.siderMenu', this.props)
-
     const { collapsed, location: { pathname } } = this.props
     const { openKeys } = this.state
     // 当前展开的 SubMenu 菜单项 key 数组
@@ -180,8 +154,6 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
     if (!selectedKeys.length) {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
-
-    // console.log('selectedKeys', selectedKeys);
 
     return (
       <Sider
@@ -194,10 +166,10 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
         className="side-menu"
       >
         <div className="logo">
-          logo
+          管 理 系 统
           {/* <Link to="/">
             <img src={logo} alt="logo" />
-            <h1>Ant Design Pro</h1>
+            <h1></h1>
           </Link> */}
         </div>
         <Menu
@@ -208,25 +180,7 @@ export default class SiderMenu extends PureComponent<any, ISiderMenu> {
           selectedKeys={selectedKeys}
           onOpenChange={this.handleOpenChange}
         >
-
           {this.getNavMenuItems(this.menus)}
-
-          {/* <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
-          </Menu.Item>
-
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Option 2
-          </Menu.Item>
-
-          <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu> */}
-
-
         </Menu>
       </Sider>
     );

@@ -20,11 +20,3 @@ render(
     </Router>
   </ConfigProvider>, document.getElementById('app')
 );
-
-// Promise.all([
-//   Fetch(`/admin/loginUser`),
-//   meta_all(),
-// ]).then(([loginUser, meta]) => dispatch(state => {
-//   console.log('state', state);
-//   return { ...state, loginUser, meta }
-// }))
